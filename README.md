@@ -1,3 +1,4 @@
+
 <div align="center">
 
 # GNN-Based Drug Target Identification
@@ -104,7 +105,7 @@ The compact model reduces the hidden representation by **78.12%** (128 to 28 neu
 
 <div align="center">
 
-<img src="figures/model_architecture.jpg" alt="Model architecture: GAT versus SGAT" width="85%"/>
+<img src="model_architecture.jfif" alt="Model architecture: GAT versus SGAT" width="85%"/>
 
 </div>
 
@@ -114,7 +115,7 @@ The compact model reduces the hidden representation by **78.12%** (128 to 28 neu
 
 <div align="center">
 
-<img src="figures/data_split.jpg" alt="Stratified data split" width="85%"/>
+<img src="data_split.jfif" alt="Stratified data split" width="85%"/>
 
 </div>
 
@@ -134,7 +135,7 @@ A stratified 60/20/20 split (seed 42) preserves the class ratio across subsets:
 
 <div align="center">
 
-<img src="results/sgat_neuron_destruction_roc_auc.png" alt="SGAT neuron destruction curve (ROC-AUC)" width="80%"/>
+<img src="sgat_neuron_destruction_roc_auc.png" alt="SGAT neuron destruction curve (ROC-AUC)" width="80%"/>
 
 </div>
 
@@ -144,7 +145,7 @@ The 28-neuron configuration is the smallest tested representation that satisfies
 
 <div align="center">
 
-<img src="results/sgat_neuron_pruning_pr_auc.png" alt="SGAT neuron pruning curve (PR-AUC)" width="80%"/>
+<img src="sgat_neuron_pruning_pr_auc.png" alt="SGAT neuron pruning curve (PR-AUC)" width="80%"/>
 
 </div>
 
@@ -155,24 +156,25 @@ The 28-neuron configuration is the smallest tested representation that satisfies
 ```text
 gnn-drug-target-identification/
 │
-├── data/
+├── data/                                    # Dataset files (download separately - see Dataset Sources)
 │   ├── 9606.protein.info.v12.0.txt          # STRING: protein information (Homo sapiens)
 │   ├── 9606.protein.links.v12.0.txt         # STRING: protein-protein interactions
 │   └── curated_gene_disease_associations.tsv # DisGeNET: curated gene-disease associations
 │
-├── figures/
-│   ├── data_split.jpg                       # Data splitting schema
-│   └── model_architecture.jpg               # GAT vs SGAT architecture schema
+── data_split.jfif                          # Data splitting visualization
+├── model_architecture.jfif                  # Model architecture diagram
 │
 ├── results/
 │   ├── sgat_neuron_destruction_roc_auc.png  # Neuron destruction curve (ROC-AUC)
 │   └── sgat_neuron_pruning_pr_auc.png       # Neuron pruning curve (PR-AUC)
 │
-├── .gitignore
+── .gitignore
 ├── gnn_drug_target_identification.ipynb     # Complete pipeline (single notebook)
 ├── README.md
 └── requirements.txt
 ```
+
+**Note:** The `data/` folder is not included in the repository due to file size limitations. Download the datasets separately using the links provided in the [Dataset Sources](#8-dataset-sources) section.
 
 ---
 
@@ -195,9 +197,9 @@ source venv/bin/activate        # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### Data
+### Download Datasets
 
-The `data/` folder must contain the three files shown in the repository structure. If the raw STRING files are excluded from version control because of their size, download them as described in [Dataset Sources](#8-dataset-sources) and place them in `data/`.
+Create a `data/` folder and download the required datasets (see [Dataset Sources](#8-dataset-sources) below).
 
 ### Run the Pipeline
 
@@ -219,10 +221,25 @@ Open `gnn_drug_target_identification.ipynb` and execute the cells in order. The 
 
 ## 8. Dataset Sources
 
+### Download Link
+
+📥 **[Download all datasets here](https://www.kaggle.com/datasets)** *(or replace with your actual Kaggle/Google Drive link)*
+
+Alternatively, download each dataset separately:
+
 | Dataset | Version | Used for | Link |
 |---|---|---|---|
-| **STRING** | v12.0 (Homo sapiens, taxon 9606) | Protein information and interactions, filtered at combined score >= 700 | [string-db.org](https://string-db.org) |
-| **DisGeNET** | Curated gene-disease associations | Diabetes Mellitus gene associations (91 genes, 74 mapped to the PPI graph) | [disgenet.org](https://www.disgenet.org) |
+| **STRING** | v12.0 (Homo sapiens, taxon 9606) | Protein information and interactions, filtered at combined score >= 700 | [string-db.org](https://string-db.org/cgi/download.pl?species_text=Homo+sapiens) |
+| **DisGeNET** | Curated gene-disease associations | Diabetes Mellitus gene associations (91 genes, 74 mapped to the PPI graph) | [disgenet.org](https://www.disgenet.org/downloads) |
+
+**Instructions:**
+1. Create a folder named `data/` in the root directory
+2. Download the STRING files for Homo sapiens (taxon 9606):
+   - `9606.protein.info.v12.0.txt`
+   - `9606.protein.links.v12.0.txt`
+3. Download the DisGeNET curated gene-disease associations:
+   - `curated_gene_disease_associations.tsv`
+4. Place all three files in the `data/` folder
 
 ---
 
