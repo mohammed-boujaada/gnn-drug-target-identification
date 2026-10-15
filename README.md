@@ -156,19 +156,14 @@ The 28-neuron configuration is the smallest tested representation that satisfies
 ```text
 gnn-drug-target-identification/
 │
-├── data/                                    # Dataset files (download separately - see Dataset Sources)
-│   ├── 9606.protein.info.v12.0.txt          # STRING: protein information (Homo sapiens)
-│   ├── 9606.protein.links.v12.0.txt         # STRING: protein-protein interactions
-│   └── curated_gene_disease_associations.tsv # DisGeNET: curated gene-disease associations
 │
-── data_split.jfif                          # Data splitting visualization
+│── data_split.jfif                          # Data splitting visualization
 ├── model_architecture.jfif                  # Model architecture diagram
 │
-├── results/
-│   ├── sgat_neuron_destruction_roc_auc.png  # Neuron destruction curve (ROC-AUC)
-│   └── sgat_neuron_pruning_pr_auc.png       # Neuron pruning curve (PR-AUC)
-│
-── .gitignore
+├
+├── sgat_neuron_destruction_roc_auc.png  # Neuron destruction curve (ROC-AUC)
+│── sgat_neuron_pruning_pr_auc.png       # Neuron pruning curve (PR-AUC)│
+│── .gitignore
 ├── gnn_drug_target_identification.ipynb     # Complete pipeline (single notebook)
 ├── README.md
 └── requirements.txt
