@@ -170,7 +170,6 @@ gnn-drug-target-identification/
 ```
 
 **Note:** The `data/` folder is not included in the repository due to file size limitations. Download the datasets separately using the links provided in the [Dataset Sources](#8-dataset-sources) section.
-
 ---
 
 ## 7. Installation and Execution
